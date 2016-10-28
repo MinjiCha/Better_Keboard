@@ -1,1 +1,8 @@
-#include <stdio.h>#include <stdio.h>#include <windows.h>#include <iostream>#include <time.h>#include <string.h>int main(){    char text[512] = {0}, counttext[512]={0};    int i, j, count[512]={0};    FILE *in = fopen("input.txt","r");    fscanf(in, " %[^\n]s", text);    fclose(in);    counttext[0]=text[0];    int len = strlen(text);    for(i=0; i<len; i++){        for(j=0; j<i+1; j++){            if(text[i]==counttext[j]) {                count[j]+=1;                break;            }            else counttext[i]=text[i];        }    }    for(i=0; i<len; i++) printf("%c : %d\n", counttext[i], count[i]);    return 0;}
+#include <stdio.h>
+#include <stdio.h>
+#include <windows.h>
+#include <iostream>
+#include <time.h>
+#include <string.h>
+
+int main(){    char text[512] = {0}, counttext[512]={0};    int i, j, count[512]={0};    FILE *in = fopen("input.txt","r");    fscanf(in, " %[^\n]s", text);    fclose(in);    counttext[0]=text[0];    int len = strlen(text);    for(i=0; i<len; i++){        for(j=0; j<i+1; j++){            if(text[i]==counttext[j]) {                count[j]+=1;                break;            }            else counttext[i]=text[i];        }    }    for(i=0; i<len; i++) printf("%c : %d\n", counttext[i], count[i]);    return 0;}
